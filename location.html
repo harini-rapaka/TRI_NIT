@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+<h3 id="demon"></p> 
+<h2 id="damn"></h2>
+<a href="https://en.wikipedia.org/wiki/Economy_of_South_India#:~:text=Some%20of%20the%20main%20crops,in%20abundance%20in%20coastal%20areas." id="sth"></a>
+<a href="http://rsrr.in/2021/01/22/diversification-in-north-indian-agriculture/" id="nrth"></a>
+<a href="https://www.nature.com/articles/149626a0" id="wst"></a>
+<a href="https://link.springer.com/chapter/10.1007/978-94-007-7055-3_16" id="est"></a>
+<a href="https://www.india.gov.in/topics/agriculture" id="cnt"></a>
+<script>
+var x = document.getElementById("demo");
+var y = document.getElementById("demon");
+var z = document.getElementById("damn");
+var a=document.getElementById("sth");
+var b=document.getElementById("nrth");
+var c=document.getElementById("wst");
+var d=document.getElementById("est");
+var e=document.getElementById("cnt");
+var long="";
+var lat="";
+var place;
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+   
+  long=position.coords.longitude;
+  lat=position.coords.latitude;
+  x.innerHTML = "Latitude: "+"->" +lat+ 
+  "<br>Longitude: "+"->"  + long;
+  
+  
+  if(lat<=18){
+  place="south";
+  y.innerHTML="its south india";
+  }
+  else if(lat>=26){
+  place="north";
+  y.innerHTML="its North india";
+  }
+  else if(long>=84){
+  place="west";
+  y.innerHTML="its west india";
+  }
+  else if(long<=74){
+  place="east";
+  y.innerHTML="its east india";
+  }
+  else{
+  place="central";
+  y.innerHTML="its central india";
+  }
+  
+
+  if(place=="south"){
+    a.innerHTML="click here for suitable south indian crops"
+
+  }
+  else if(place=="north"){
+    b.innerHTML="click here for suitable north indian crops"
+
+  }
+  else if(place=="west"){
+    c.innerHTML="click here for suitable west indian crops"
+
+  }
+  else if(place=="east"){
+    d.innerHTML="click here for suitable east indian crops"
+
+  }
+  if(place=="central"){
+    e.innerHTML="click here for suitable central indian crops"
+
+  }
+  
+}
+
+</script>
+
+
+</body>
+</html>
+
